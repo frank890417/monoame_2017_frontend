@@ -1,14 +1,14 @@
 <template lang="pug">
-  .container
-    transition-group(tag="ul",name="fade").row.works
-      li(v-for="(proj,wid) in works",v-show="wid<show_num",:key="proj").projbox.col-sm-4
+  div
+    transition-group(name="fade").row.works
+      .projbox.col-lg-6.col-md-12(v-for="(proj,wid) in works",v-show="wid<show_num",:key="proj")
         router-link.workitem_inner(
                     :to='"works/"+proj.id'
-                    :title='"點擊查看 "+proj.name+"詳細資訊"')
+                    :title='"點擊查看 "+proj.title+"詳細資訊"')
           .blackmask
 
           .content
-            h3 {{proj.name}} {{wid < show_num }}
+            h3 {{proj.title}}
             h5.proj_description {{proj.description}}
 
           .img_wrap(:style='"background-image: url("+proj.cover+")"')
@@ -17,10 +17,10 @@
       br 
       h3.text-center
         //- span(v-if="!can_load_more") {{load_text}}
-        img(v-if="!can_load_more",src="http://www.downgraf.com/wp-content/uploads/2014/09/01-progress.gif",width="160px") 
-    br
-    br
-    // button.btn.btn-primary(@click="show_num+=6") +6
+        transition(name="fade")
+          img.load_icon(v-if="!can_load_more",src="http://www.downgraf.com/wp-content/uploads/2014/09/01-progress.gif",width="100px") 
+
+  
 </template>
 
 <script>
@@ -43,6 +43,7 @@ export default {
     }
   },
   mounted(){
+    $(window).scrollTop(0)
 
   },
   watch: {
@@ -59,7 +60,7 @@ export default {
           console.log("add new post: " + this.show_num);
           this.can_load_more=true;
 
-        },1000);
+        },300);
         
       }
     }
@@ -70,5 +71,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="sass?indentedSyntax">
+
+.load_icon
+  filter: saturate(0%)
+.row
+  margin-top: 0
+  padding-top: 0
 
 </style>
