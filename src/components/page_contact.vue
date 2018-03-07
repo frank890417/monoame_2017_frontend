@@ -1,9 +1,18 @@
 <template lang="pug">
   div.page
-    h3 Mail
-    p monoamestudio@gmail.com
-    h3 Facebook
-    p 墨雨設計
+    .container
+      h2 聯繫方式
+      hr
+      h3 
+        i.fa.fa-envelope-o
+        | Mail
+      p monoamestudio@gmail.com
+      a(href="https://www.facebook.com/MonoameDesign/" target="_blank")
+        h3 
+          i.fa.fa-facebook-square
+          | Facebook
+      p 粉專：墨雨設計
+
 </template>
 
 <script>
@@ -32,12 +41,18 @@ export default {
   },
   mounted(){
     $("html,body").animate({scrollTop: 0});
+
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="sass?indentedSyntax">
+<style scoped lang="sass?indentedSyntax">
 .page
   padding-top: 50px
+i.fa
+  margin-right: 10px
+  font-size: 30px 
+a
+  color: #333
 </style>

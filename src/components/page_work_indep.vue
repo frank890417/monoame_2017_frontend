@@ -54,7 +54,11 @@ export default {
     }
   },
   mounted(){
+    document.title=this.proj.title;
     $("html,body").animate({scrollTop: 0});
+    if (window.ga){
+      ga('send', 'pageview');
+    }
   }
 }
 </script>
@@ -65,14 +69,15 @@ export default {
   background-color: white
   position: fixed
   top: 0px
-  padding: 10px 20px
+  padding: 10px 16px
   z-index: 200
   font-size: 20px
   vertical-align: middle
   cursor: pointer
   color: #555
+  // box-shadow: 10px 0px 20px rgba(0,0,0,0.1)
   i
-    font-size: 40px
+    font-size: 30px
 
 .content_indep
   width: 100%

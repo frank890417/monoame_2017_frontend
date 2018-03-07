@@ -44,7 +44,6 @@ export default {
   },
   mounted(){
     $(window).scrollTop(0)
-
   },
   watch: {
     scrollTop(){
@@ -56,7 +55,7 @@ export default {
         this.can_load_more=false;
 
         setTimeout(()=>{
-          this.show_num+=6;
+          this.show_num+=4;
           console.log("add new post: " + this.show_num);
           this.can_load_more=true;
 

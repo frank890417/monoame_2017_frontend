@@ -17,7 +17,7 @@ new Vue({
   store,
   mounted(){
     store.dispatch("load_works");
-    router.replace("/works");
+    // router.replace("/works");
     $(window).scroll((evt)=>{
       store.commit("set_scrollTop",$(window).scrollTop())
     });

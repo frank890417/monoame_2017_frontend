@@ -10,7 +10,7 @@
         h3 Member
     .row.person
       .col-sm-2
-        img.head(src="https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/14224890_1275183372500283_7171235436697275571_n.jpg?oh=903f0b600b06bb3485d77ff8a49f0bc6&oe=59E69A9F")
+        img.head(src="https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/26169339_1842004802484801_5666809996321113913_n.jpg?_nc_eui2=v1%3AAeGO-0OAdufjd-peiEPgTgSuiR_gO_vkt4haCWri3ED4K0jPSRRNp277L67ytTBvFQJRhcJdGettVzisALSAyp2Z1Pet7tBAx5ObNDpxfhvsDQ&oh=c0090e48f4b04e031c0065682be9e2f9&oe=5B0AB41B")
       .col-sm-10
         h5 吳哲宇 | Founder、Designer、Developer
 
@@ -18,14 +18,6 @@
           | 接案不斷的磨練能力走上不同的道路。
           | 兩年前開始學習前/後端網頁程式開發，
           | 將Motion Graphic加入互動性精神創造新型態的網頁體驗。
-    .row.person
-
-      .col-sm-2
-        img.head(src="http://monoame.com/img/minimg.jpg")
-      .col-sm-10
-        h5 魏敏 | Animator、User Researcher
-
-        p 「兔子讓獅子用盡全力。」
 
     .row.person
       .col-sm-2
@@ -36,6 +28,16 @@
             | 專長於插畫、平面與圖像設計，
             | 喜歡靈活地將各項設計品項整合於一體，
             | 熱衷於實驗性與藝術性值高的嘗試。
+
+
+    .row.person
+
+      .col-sm-2
+        img.head(src="http://monoame.com/img/minimg.jpg")
+      .col-sm-10
+        h5 魏敏 | Animator、User Researcher
+
+        p 「兔子讓獅子用盡全力。」
 
 
     
@@ -57,6 +59,7 @@ export default {
   },
   mounted(){
     $("html,body").animate({scrollTop: 0});
+
   }
 }
 </script>

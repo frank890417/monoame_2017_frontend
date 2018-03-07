@@ -3,7 +3,7 @@
     .container-fluid
     .row
       .col-xs-12.col-sm-3.col-md-2.logo_bar.text-center
-        img(src="http://www.monoame.com/img/iconwhite.svg" ,width=80)
+        img(src="./assets/img/iconwhite.svg" ,width=80)
         h5 Monoame Design Studio
         ul.nav
           li
@@ -18,14 +18,21 @@
       .col-md-10.col-sm-9.offset-lg-2.offset-sm-0
         transition(name="fade",mode="out-in")
           router-view(:key="$route.path")
-
+    .back_to_top(@click="back_top_top")
+      i.fa.fa-angle-up
 </template>
 
 <script>
+import $ from 'Jquery'
 export default {
   name: 'app',
   mounted(){   
     
+  },
+  methods: {
+    back_top_top(){
+      $("html,body").animate({scrollTop: 0})
+    }
   }
 }
 </script>
@@ -52,6 +59,7 @@ html,body
   // background-color: #495338
   color: #555
   background-color: #F8F2EF
+  overflow-x: hidden
   
 body
   color: $color_grey
@@ -60,6 +68,27 @@ body
   padding-bottom: 300px
   min-height: 100vh
   
+.back_to_top
+  position: fixed
+  right: 15px
+  bottom: 15px
+  background-color: #FFF
+  width: 50px
+  height: 50px
+  border-radius: 50%
+  z-index: 200
+  box-shadow: 0px 0px 20px 
+  color: #333
+  font-size: 30px
+  padding-bottom: 5px
+  cursor: pointer
+  transition: 0.5s
+
+
+  +flex-center
+  &:hover
+    background-color: #ddd
+
 
 .logo_bar
   position: fixed
@@ -90,12 +119,17 @@ body
   // background-color: #F8F2EF
 
   .nav
+    white-space: no-wrap
+    display: flex
+    flex-wrap: nowrap
+    li
+      white-space: nowrap
     a
       color: $color_grey
-      padding: 0px 8px
+      padding: 0px 5px
       letter-spacing: 1px
       font-size: 16px
-
+      white-space: nowrap
 
 .icon
   height: 90px
@@ -118,6 +152,10 @@ body
   margin-top: 0
   align-items: flex-start
   outline: none
+  @media screen and (max-width: 700px)
+    height: 300px
+    .content
+      padding: 10px
   .workitem_inner
     display: block
     position: relative
@@ -152,7 +190,7 @@ body
     // height: 100%
     position: absolute
     bottom: 0px
-    background: linear-gradient(transparent,rgba(black,0.6))
+    background: linear-gradient(transparent,rgba(black,0.5))
     display: flex
     flex-direction: column
     justify-content: flex-end
@@ -186,7 +224,7 @@ body
     // padding: 0
 
   .proj_description
-    opacity: 0.6
+    opacity: 0.5
     
   &:hover
     h3,h5
