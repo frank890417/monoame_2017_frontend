@@ -1,7 +1,8 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import './assets/bootstrap-4.0.0-alpha.6/scss/bootstrap.scss'
-
+import softscroll from 'monoame-softscroll'
+softscroll.init()
 import Vue from 'vue'
 import App from './App'
 import router from './router'
@@ -25,6 +26,10 @@ new Vue({
   template: '<App/>',
   components: { App }
 })
+
+setTimeout(() => {
+  store.commit("set_loading",false)
+}, 3000);
 
 
 if (window.document.domain=="monoame.com" || window.document.domain=="www.monoame.com"){

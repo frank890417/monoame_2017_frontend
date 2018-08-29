@@ -6,7 +6,7 @@ import page_work_indep from '@/components/page_work_indep'
 import page_contact from '@/components/page_contact'
 import page_about from '@/components/page_about'
 import page_class from '@/components/page_class'
-
+import store from '../store'
 
 Vue.use(Meta)
 Vue.use(Router)
@@ -57,12 +57,20 @@ var router = new Router({
 
 router.beforeEach((to, from, next) => {
   console.log(to)
+  store.commit('set_loading',true)
+  setTimeout(() => {
+    store.commit('set_loading',false)
+  }, 2000);
   document.title = to.meta.title
   if (to.name!="page_work_indep")
     if (window.ga){
       ga('send', 'pageview');
     }
-  next()
+  setTimeout(() => {
+    next()
+    store.commit('setMenu',false)
+
+  }, 500);
 })
 
 export default router

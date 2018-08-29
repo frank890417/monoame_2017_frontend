@@ -8,6 +8,8 @@ var store = new Vuex.Store({
   state: {
     works: [],
     scrollTop: 0,
+    loading: true,
+    menu: false
   },
   mutations: {
     set_works(state,works){
@@ -16,6 +18,12 @@ var store = new Vuex.Store({
     set_scrollTop(state,value){
       state.scrollTop=value;
     },
+    set_loading(state,value){
+      state.loading=value
+    },
+    setMenu(state,value){
+      state.menu=value
+    }
   },
   actions: {
     load_works(context){

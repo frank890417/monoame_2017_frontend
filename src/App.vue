@@ -1,29 +1,38 @@
 <template lang="pug">
-  #app
-    .container-fluid
-    .row
-      .col-xs-12.col-sm-3.col-md-2.logo_bar.text-center
-        img(src="./assets/img/iconwhite.svg" ,width=80)
-        h5 Monoame Design Studio
-        ul.nav
-          li
-            router-link(to="/works") 作品
-          li
-            router-link(to="/about") 介紹
-          li
-            router-link(to="/class") 課程
-          li
-            router-link(to="/contact") 聯繫
+#app(:class="{loading: loading}")
+  transition(name="fade",mode="out-in")
+    pageLoading(v-if="loading")
+  .menu-toggle(@click="setMenu(!menu)")
+    .rains
+      .rain
+      .rain
+      .rain
+      .rain
+  transition(name="fade",mode="out-in")
+    pageMenu(v-if="menu")
+  h5.fixed-logo(v-if="$route.path=='/works'") Monoame <br>Design Studio 墨雨設計
+  .container-fluid
+        
+        
         //- h6 monoamestudio@gmail.com
-      .col-md-10.col-sm-9.offset-lg-2.offset-sm-0
-        transition(name="fade",mode="out-in")
-          router-view(:key="$route.path")
-    .back_to_top(@click="back_top_top")
-      i.fa.fa-angle-up
+  div.pages-area
+    
+    .container-fluid
+      .row
+        .col-12
+          transition(name="fade",mode="out-in")
+            router-view(:key="$route.path")
+  .back_to_top(@click="back_top_top")
+    i.fa.fa-angle-up
+  footer
+    p#foot.color_black &copy;版權所有 2018 墨雨設計
 </template>
 
 <script>
+import pageLoading from './components/page_loading'
+import pageMenu from './components/page_menu'
 import $ from 'Jquery'
+import {mapState, mapMutations} from 'vuex'
 export default {
   name: 'app',
   mounted(){   
@@ -32,18 +41,28 @@ export default {
   methods: {
     back_top_top(){
       $("html,body").animate({scrollTop: 0})
-    }
+    },
+    ...mapMutations(['setMenu'])
+  },
+  computed: {
+    ...mapState(['loading','menu'])
+  },
+  components: {
+    pageLoading , pageMenu
   }
 }
 </script>
 
-<style lang="sass?indentedSyntax">
+<style lang="sass">
 $color_white: #FFF
 $color_purple: #430095
 $color_red: #EE3441
 $color_grey: #333
-@import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900)
+
+$colorBlue: #A8D3D2
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css)
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css)
+
 @mixin flex_center
   display: flex
   justify-content: center
@@ -51,7 +70,7 @@ $color_grey: #333
 
 *
   vertical-align: top
-  font-family: "Playfair Display", serif, "微軟正黑體"
+  font-family: 'Noto Sans TC', sans-serif
   
 html,body
   margin: 0
@@ -60,14 +79,40 @@ html,body
   color: #555
   background-color: #F8F2EF
   overflow-x: hidden
+
   
 body
   color: $color_grey
   background-color: #fff
   font-size: 15px
-  padding-bottom: 300px
+  // padding-bottom: 300px
   min-height: 100vh
+  overflow: hidden
   
+// #app
+//   &.loading
+//     overflow: hidden
+//     height: 100vh
+h1,h2,h3,h4,h5,h6,p
+  line-height: 1.4
+h1
+  font-size: 2.5rem
+h2
+  font-size: 2rem
+h3
+  font-size: 1.5rem
+h4
+  font-size: 1.3rem
+h5
+  font-size: 1rem
+p
+  font-size: 1rem
+  letter-spacing: 1px
+  line-height: 1.8
+img
+  max-width: 100%
+
+
 .back_to_top
   position: fixed
   right: 15px
@@ -89,15 +134,22 @@ body
   &:hover
     background-color: #ddd
 
-
-.logo_bar
+.fixed-logo
   position: fixed
+  top: 10px
+  left: 10px
+  font-size: 100px
+  opacity: 0.1
+  font-weight: 200
+.logo_bar
+  // position: fixed
   +flex_center
-  height: 100%
+  // height: 100%
+  width: 100%
   flex-direction: column
+  padding: 5vw
   // box-shadow: 0px 0px 20px rgba(0,0,0,0.3)
   // letter-spacing: 2px
-  padding-right: 0
   h6
     font-weight: 300
   @media screen and (max-width: 1000px)
@@ -105,134 +157,53 @@ body
     padding-bottom: 30px
   h5
     font-size: 16px
-  h5:before
-    content: ""
-    display: block
-    width: 2px
-    height: 20px
-    border-left: solid 2px $color_grey
-    margin: auto
-    margin-bottom: 10px
-  // background: url(http://www.monoame.com/newwebsite/img/blue_water.svg)
+  // h5:before
+  //   content: ""
+  //   display: block
+  //   width: 2px
+  //   height: 20px
+  //   border-left: solid 2px $color_grey
+  //   margin: auto
+  //   margin-bottom: 10px
   background-repeat: no-repeat
   background-position: center center
-  // background-color: #F8F2EF
 
-  .nav
-    white-space: no-wrap
-    display: flex
-    flex-wrap: nowrap
-    li
-      white-space: nowrap
-    a
-      color: $color_grey
-      padding: 0px 5px
-      letter-spacing: 1px
-      font-size: 16px
-      white-space: nowrap
-
-.icon
-  height: 90px
-  display: inline-block
-  // margin: 0px 20px
-  border: solid 1px rgba(0,0,0,0.05)
-  // padding: 0px 20px
-  // display: none
-  
-.projbox
-  color: $color_white
-  padding: 0
-  // height: 300px
+.menu-toggle
+  position: fixed
+  right: 30px
+  top: 30px
+  z-index: 500
   cursor: pointer
-  position: relative
-  // border-radius: 30px
-  // padding: 10px
-  height: 500px
-  padding: 0px
-  margin-top: 0
-  align-items: flex-start
-  outline: none
-  @media screen and (max-width: 700px)
-    height: 300px
-    .content
-      padding: 10px
-  .workitem_inner
-    display: block
-    position: relative
-    width: 100%
-    // height: 100%
-    // height: 300px
-    height: 100%
-    padding: 0
-    // padding: 10px
-
-  .img_wrap
-    width: 100%
-    height: 100%
-    background-size: cover
-    background-position: center center
-  .blackmask
-    position: absolute
-    width: 100%
-    height: 100%
-    left: 0
-    top: 0
-    background-color: rgba(0,0,0,0.005)
-    pointer-events: none
-    transition-duration: 0.5s
-    z-index: 3
-  .content
-    position: absolute
-    // padding: 10px
-    z-index: 5
-    width: 100%
-    height: 30%
-    // height: 100%
-    position: absolute
-    bottom: 0px
-    background: linear-gradient(transparent,rgba(black,0.5))
+  .rains
     display: flex
-    flex-direction: column
-    justify-content: flex-end
-    padding-bottom: 10px
-    // width: 100%
-  h3,h5
-    transition-duration: 0.5s
-    // text-shadow: 0px 0px 15px rgba(0,0,0,0.2)
-    font-weight: 300
-    color: #333
-    padding: 10px 20px
-    // position: absolute
-    // bottom: 0px
-    font-weight: 300
-    // display: inline-block
+    @keyframes rainIn
+      0%,100%
+        opacity: 0
 
+      20%,80%
+        opacity: 1
+        transform: translateY(0px)
+      0%
+        transform: translateY(-30px)
+      100%
+        transform: translateY(30px)
 
-  h3
-    letter-spacing: 2px
-    font-size: 22px
-    // background-color: #FFF
-    color: white
-    padding-bottom: 0
-
-
-  h5
-    letter-spacing: 2px
-    font-size: 16px
-    color: white
-    padding-top: 0
-    // padding: 0
-
-  .proj_description
-    opacity: 0.5
+    .rain
+      width: 8px
+      height: 30px
+      background-color: $colorBlue
+      border-radius: 50px
+      margin: 5px
+      animation: rainIn 2s infinite
+      @for $i from 1 through 4
+        &:nth-child(#{$i})
+          animation-delay: #{$i*-0.2s} 
+    .rain
+      animation-play-state: paused
+    &:hover
+      .rain
+        animation-play-state: initial
     
-  &:hover
-    h3,h5
-      // color: $color_white
-    .blackmask
-      background-color: rgba(0,0,0,0.5)
-    // .proj_description
-      // opacity: 0.9
   
 .fade-leave-active 
   transition: opacity .5s
@@ -243,18 +214,9 @@ body
 .fade-enter, .fade-leave-active
   opacity: 0
 
-nav
-  float: right
-  
-  a
-    color: #333
-    cursor: pointer
-    &:hover
-      color: 3333
-  li
-    display: inline-block
-    margin: 0px 10px
-    margin-top: 30px
+[class^='page']
+  min-height: 100vh
+  margin-bottom: 30px
     
 .bluerain
   display: none
@@ -279,4 +241,10 @@ nav
   
 .memberbox
   margin-bottom: 40px
+footer
+  padding: 50px
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
 </style>
