@@ -52,7 +52,7 @@ var router = new Router({
     }
 
   ],
-  // mode: "history"
+  mode: "history"
 })
 
 router.beforeEach((to, from, next) => {
