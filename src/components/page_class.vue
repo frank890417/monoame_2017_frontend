@@ -24,7 +24,7 @@
         hr
     a.row.person(href="https://www.facebook.com/pg/bosscodingplease" target="_blank" @click="log_event('老闆，來點寇汀吧。')")
       .col-sm-3
-        img.head(src="https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/17308904_1822494568003955_966572233505397914_n.jpg?oh=8bf6294d2647d4664a6fb0aa8695cdf2&oe=59A9F6B3")
+        img.head(src="/static/img/bosscoding.jpg")
       .col-sm-9
         h4 老闆，來點寇汀吧。 <br>Boss,CODING please.
         p [老闆，來點寇汀吧。]<br>寇汀，是一種名為Coding的雞尾酒。<br>深夜酒吧，想做什麼都可以<br>每週四十點，老闆帶著你直播寇汀Coding！

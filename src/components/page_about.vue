@@ -10,7 +10,7 @@
         h3 Member
     .row.person
       .col-sm-2
-        img.head(src="https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/26169339_1842004802484801_5666809996321113913_n.jpg?_nc_eui2=v1%3AAeGO-0OAdufjd-peiEPgTgSuiR_gO_vkt4haCWri3ED4K0jPSRRNp277L67ytTBvFQJRhcJdGettVzisALSAyp2Z1Pet7tBAx5ObNDpxfhvsDQ&oh=c0090e48f4b04e031c0065682be9e2f9&oe=5B0AB41B")
+        img.head(src="https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/14207604_1275183372500283_7171235436697275571_o.jpg?_nc_cat=0&oh=45786d2ff2699e9553c8443aa46f7009&oe=5C00969F")
       .col-sm-10
         h5 吳哲宇 | Founder、Designer、Developer
 
@@ -19,7 +19,7 @@
           | 兩年前開始學習前/後端網頁程式開發，
           | 將Motion Graphic加入互動性精神創造新型態的網頁體驗。
 
-    .row.person
+    //.row.person
       .col-sm-2
         img.head(src="http://monoame.com/img/yiimg.jpg")
       .col-sm-10
@@ -30,7 +30,7 @@
             | 熱衷於實驗性與藝術性值高的嘗試。
 
 
-    .row.person
+    //.row.person
 
       .col-sm-2
         img.head(src="http://monoame.com/img/minimg.jpg")
