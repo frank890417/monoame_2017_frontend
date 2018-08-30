@@ -1,7 +1,7 @@
 <template lang="pug">
-  div.page
-    .container
-      h2 聯繫方式
+  .page-contact
+    .container.pt-5
+      h2.pt-5 聯繫方式
       hr
       h3 
         i.fa.fa-envelope-o
@@ -48,11 +48,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="sass?indentedSyntax">
-.page
-  padding-top: 50px
-i.fa
-  margin-right: 10px
-  font-size: 30px 
-a
-  color: #333
+.page-contact
+  padding-top: 150px
+  i.fa
+    margin-right: 10px
+    font-size: 30px 
+  a
+    color: #333
 </style>

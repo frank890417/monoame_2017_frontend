@@ -2,7 +2,8 @@
 #app(:class="{loading: loading}")
   transition(name="fade",mode="out-in")
     pageLoading(v-if="loading")
-  .menu-toggle(@click="setMenu(!menu)")
+  .menu-toggle(@click="setMenu(!menu)",
+               :class="{open: menu}")
     .rains
       .rain
       .rain
@@ -10,7 +11,7 @@
       .rain
   transition(name="fade",mode="out-in")
     pageMenu(v-if="menu")
-  h5.fixed-logo(v-if="$route.path=='/works'") Monoame <br>Design Studio 墨雨設計
+  h5.fixed-logo Monoame <br>Design Studio 墨雨設計
   .container-fluid
         
         
@@ -194,16 +195,21 @@ img
       background-color: $colorBlue
       border-radius: 50px
       margin: 5px
-      animation: rainIn 2s infinite
+      animation: none
       @for $i from 1 through 4
         &:nth-child(#{$i})
           animation-delay: #{$i*-0.2s} 
     .rain
-      animation-play-state: paused
     &:hover
       .rain
-        animation-play-state: initial
+        animation: rainIn 2s infinite
+        @for $i from 1 through 4
+          &:nth-child(#{$i})
+            animation-delay: #{$i*-0.2s} 
     
+  &.open
+    .rain
+      background-color: white
   
 .fade-leave-active 
   transition: opacity .5s

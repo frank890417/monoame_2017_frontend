@@ -38,7 +38,7 @@ export default {
     var rain_dist=20;
     var rain_max_length=25;
     var rain_max_duration=2.5;
-    for(var i=0;i<100;i++){
+    for(var i=0;i<80;i++){
       let rain_length=(5+Math.random()*rain_max_length);
       let rain_opacity=Math.random();
       let rain_duration=(1.5+Math.random()*rain_max_duration);
@@ -47,9 +47,9 @@ export default {
               style='height: "+rain_length+"px; \
                       left: "+(i*rain_dist)+"px; \
                       opacity: "+rain_opacity+"; \
-                      -webkit-filter: blur("+(1-rain_opacity)*2+"px); \
-                      -webkit-animation-duration: "+rain_duration+"s; \
-                      -webkit-animation-delay: "+rain_delay+"s; ' \
+                      filter: blur("+(1-rain_opacity)*2+"px); \
+                      animation-duration: "+rain_duration+"s; \
+                      animation-delay: "+rain_delay+"s; ' \
                       ></div>\n";
       
     }
@@ -57,8 +57,9 @@ export default {
 
     //add Waves
     var waves="";
-    for(i=0;i<100;i++)
+    for(i=0;i<90;i++){
       waves+="<div class='wavebasic wave"+i+"' ></div>"
+    }
     $(".bg").append(waves);
 
 
@@ -171,7 +172,7 @@ $colorBlue: #A8D3D2
       border-color: #333
 
   .imgpic
-    width: 30%
+    width: 35%
 
   .row
     width: 100%

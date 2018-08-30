@@ -52,7 +52,7 @@ $colorBlue: #A8D3D2
       background-color: #fff
       border-radius: 50px
       margin: 10px
-      animation: rainIn 2s infinite
+      animation: rainIn 2.5s infinite
       @for $i from 1 through 4
         &:nth-child(#{$i})
           animation-delay: #{$i*-0.2s} 
