@@ -13,7 +13,7 @@
     pageMenu(v-if="menu")
   router-link(to="/")
     h5.fixed-logo.animated.fadeIn.delay-ani-10(:class="{not_at_top: scrollTop>5 || $route.path.indexOf('/works/')!=-1   }") 
-      | Monoame Design<br>墨雨設計
+      span Monoame Design<br>墨雨設計
       span.small Interactive Design Agency
       .rains
         //- h1 loading
@@ -35,7 +35,7 @@
         .col-12
           transition(name="fade",mode="out-in")
             router-view(:key="$route.path")
-  .back_to_top(@click="back_top_top")
+  .back_to_top(@click="back_top_top" :class="{show:scrollTop>5}")
     i.fa.fa-angle-up
   footer
     p#foot.color_black &copy;版權所有 2018 墨雨設計
@@ -162,13 +162,19 @@ img
   cursor: pointer
   transition: 0.5s
   
+  opacity: 0
+  &.show
+    opacity: 1
+    transform: translateY(-10px)
+
     
 
 
   +flex-center
   &:hover
     // background-color: #ddd
-    transform: translateY(-10px)
+    transform: translateY(-10px) scale(1.2)
+    color: $colorBlue
 
 .fixed-logo
   position: fixed

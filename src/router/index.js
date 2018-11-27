@@ -60,7 +60,7 @@ router.beforeEach((to, from, next) => {
   store.commit('set_loading',true)
   setTimeout(() => {
     store.commit('set_loading',false)
-  }, 2000);
+  }, 1600);
   document.title = to.meta.title
   if (to.name!="page_work_indep")
     if (window.ga){

@@ -79,6 +79,9 @@ export default {
 $colorBlue: #A8D3D2
 .page-works
   padding-top: 250px
+  background: linear-gradient(0.01deg, transparent 99%,(rgba(white,0.1)) 100%)
+
+  background-size: 100vw 20vh
 .load_icon
   filter: saturate(0%)
 .row

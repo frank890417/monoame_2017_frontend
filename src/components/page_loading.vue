@@ -57,7 +57,7 @@ $colorBlue: #A8D3D2
       animation: rainIn 2.5s infinite
       @for $i from 1 through 4
         &:nth-child(#{$i})
-          animation-delay: #{$i*-0.2s} 
+          animation-delay: #{$i*-0.2s - 0.6s} 
       
     
 

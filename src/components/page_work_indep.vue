@@ -1,6 +1,6 @@
 <template lang="pug">
 .page-work-indep.pt-5
-  router-link.back_btn.animated.delat-ani-30.slideInLeft(to="/works")
+  router-link.back_btn.animated.delat-ani-30.slideInLeft(to="/works" )
     i.fa.fa-angle-left
   .container
     .row
@@ -49,7 +49,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['works']),
+    ...mapState(['works','scrollTop']),
     proj(){
       var result=this.works.filter((obj)=>obj.id==this.id)[0]
       console.log(this.id)

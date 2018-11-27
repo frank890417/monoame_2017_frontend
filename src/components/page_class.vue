@@ -24,7 +24,7 @@
             .col-sm-12
               h2.mt-5 老闆，來點寇汀吧。
               h4.mb-3 Boss,CODING please.
-              p [老闆，來點寇汀吧。]<br>寇汀，是一種名為Coding的雞尾酒。<br>深夜酒吧，想做什麼都可以<br>每週四十點，老闆帶著你直播寇汀Coding！
+              p 寇汀，是一種名為Coding的雞尾酒。<br>深夜酒吧，想做什麼都可以<br>每週四十點，老闆帶著你直播寇汀Coding！
 
 
     
@@ -61,7 +61,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="sass">
 .page-class
-  padding-top: 100px
+  padding-top: 70px
   .class
     // padding: 50px
     padding: 30px
@@ -69,12 +69,12 @@ export default {
     h2
       font-size: 30px
     .row
-      padding: 10px
-      border: solid 3px rgba(white,0.04)
-      border-radius: 2px
+      padding: 15px 0px
+      border: solid 2px rgba(white,0.04)
+      border-radius: 4px
       transition: 0.5s
       &:hover
-        border: solid 3px rgba(white,0.8)
+        border: solid 2px rgba(white,0.8)
         // color: #333
         // background-color: #eee
         // text-decoration: none
