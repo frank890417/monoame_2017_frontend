@@ -19,7 +19,8 @@ export default {
 $colorBlue: #A8D3D2
 .page-loading
   position: fixed
-  background-color: #111
+  background-color: rgba(#112,0.9)
+  
   width: 100vw
   height: 100vh
   position: fixed
@@ -29,6 +30,7 @@ $colorBlue: #A8D3D2
   display: flex
   justify-content: center
   align-items: center
+
   .rains
     display: flex
 

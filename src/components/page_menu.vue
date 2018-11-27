@@ -81,7 +81,7 @@ $colorBlue: #A8D3D2
     
   position: fixed
   background-color: $colorBlue
-  background-color: #112
+  // background-color: #112
   width: 100vw  
   height: 100vh
   // white-space: no-wrap

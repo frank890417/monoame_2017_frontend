@@ -101,8 +101,8 @@ html,body
     top: 0
     width: 100%
     height: 100%
-    border: solid 13px #A8D3D2
-    // border-top: solid 13px #A8D3D2
+    // border: solid 10px white
+    border: solid 10px #A8D3D2
     pointer-events: none
     z-index: 1000
   
@@ -189,7 +189,7 @@ img
     letter-spacing: 1px
   &.at_top
     // transform: scale(0.6)
-    opacity: 0.1
+    opacity: 0.15
     .rain
       opacity: 0.9
       &:nth-child(1)
