@@ -47,12 +47,15 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="sass?indentedSyntax">
+<style scoped lang="sass">
 .page-contact
   padding-top: 150px
+  color: white
   i.fa
     margin-right: 10px
     font-size: 30px 
+    color: white
   a
-    color: #333
+    color: white
+  
 </style>

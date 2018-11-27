@@ -12,7 +12,7 @@
   transition(name="fade",mode="out-in")
     pageMenu(v-if="menu")
   router-link(to="/")
-    h5.fixed-logo.animated.fadeIn.delay-ani-10(:class="{at_top: scrollTop>5}") 
+    h5.fixed-logo.animated.fadeIn.delay-ani-10(:class="{not_at_top: scrollTop>5 || $route.path.indexOf('/works/')!=-1   }") 
       | Monoame Design<br>墨雨設計
       span.small Interactive Design Agency
       .rains
@@ -44,7 +44,7 @@
 <script>
 import pageLoading from './components/page_loading'
 import pageMenu from './components/page_menu'
-import $ from 'Jquery'
+import $ from 'jquery'
 import {mapState, mapMutations} from 'vuex'
 export default {
   name: 'app',
@@ -102,7 +102,7 @@ html,body
     width: 100%
     height: 100%
     // border: solid 10px white
-    border: solid 10px #A8D3D2
+    border: solid 8px #A8D3D2
     pointer-events: none
     z-index: 1000
   
@@ -187,7 +187,7 @@ img
     margin-top: 10px
     // color: white
     letter-spacing: 1px
-  &.at_top
+  &.not_at_top
     // transform: scale(0.6)
     opacity: 0.15
     .rain

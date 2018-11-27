@@ -2,7 +2,7 @@
   .page-works
     .container
       .row.works
-        .projbox.animated.fadeInUp.col-lg-6.col-md-12(v-for="(proj,wid) in works",v-show="wid<show_num",:key="proj")
+        .projbox.col-lg-6.col-md-12(v-for="(proj,wid) in works",v-show="wid<show_num",:key="proj")
           router-link.workitem_inner(
                       :to='"works/"+proj.id'
                       :title='"點擊查看 "+proj.title+"詳細資訊"')
@@ -11,9 +11,11 @@
 
               .img_wrap(:style='"background-image: url("+proj.cover+")"')
               .content
-                h4.year {{ proj.established_time.split("-")[0] }}
-                h3 {{proj.title}}
-                h5.proj_description {{proj.description}}
+                h4.year.animated.fadeIn {{ proj.established_time.split("-")[0] }}
+                .ovh
+                  h3.animated.slideInUp {{proj.title}}
+                .ovh
+                  h5.proj_description {{proj.description}}
 
       .trigger_bar
         br 
@@ -21,7 +23,7 @@
         h3.text-center
           //- span(v-if="!can_load_more") {{load_text}}
           transition(name="fade")
-            img.load_icon(v-if="!can_load_more",src="http://www.downgraf.com/wp-content/uploads/2014/09/01-progress.gif",width="100px") 
+            //- img.load_icon(v-if="!can_load_more",src="http://www.downgraf.com/wp-content/uploads/2014/09/01-progress.gif",width="100px") 
 
   
 </template>
@@ -33,7 +35,7 @@ export default {
   name: 'hello',
   data () {
     return {
-      show_num: 6,
+      show_num: 4,
       can_load_more: true,
       load_text: "載入中...",
       
@@ -87,7 +89,6 @@ $colorBlue: #A8D3D2
 .projbox
   color: white
   padding: 40px
-  box-shadow: -5px 5px 30px rgba(black,0.6)
   // height: 300px
 
   cursor: pointer
@@ -129,6 +130,8 @@ $colorBlue: #A8D3D2
     height: 100%
     background-size: cover
     background-position: center center
+    transition: 0.5s
+    box-shadow: -5px 5px 30px rgba(black,0.6)
   .blackmask
     position: absolute
     width: 100%
@@ -137,7 +140,7 @@ $colorBlue: #A8D3D2
     top: 0
     background-color: rgba(0,0,0,0.005)
     pointer-events: none
-    transition-duration: 0.5s
+    transition-duration: 0.2s
     z-index: 3
   .content
 
@@ -205,5 +208,12 @@ $colorBlue: #A8D3D2
       background-color: rgba(0,0,0,0.5)
     // .proj_description
       // opacity: 0.9
+.ovh
+  overflow: hidden
+  *
+    animation-duration: 1.5s
+    animation-delay: 0.8s
+.workitem_inner:hover .img_wrap
+  transform: translateY(-10px)
 
 </style>

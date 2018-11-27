@@ -1,6 +1,6 @@
 <template lang="pug">
 .page-work-indep.pt-5
-  router-link.back_btn(to="/works")
+  router-link.back_btn.animated.delat-ani-30.slideInLeft(to="/works")
     i.fa.fa-angle-left
   .container
     .row
@@ -16,7 +16,9 @@
             p Client: {{proj.company}}
           .col-sm-6
             p {{proj.description}}
-            a.btn-link(:href='proj.link', target='_blank') 作品網站連結
+            a.btn-link(:href='proj.link', target='_blank')
+              //- i.fa.fa-link
+              | 前往作品
         .row
           .col-sm-12
             hr
@@ -71,6 +73,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="sass">
+$colorBlue: #A8D3D2
 .page-work-indep
   .projbox
     height: 400px
@@ -81,35 +84,42 @@ export default {
     align-items: center
     background-position: center center
     background-size: cover
+  img
+    margin-top: 5vmin
+    box-shadow: 0px 0px 20px rgba(black,0.3)
   video
     width: 100%
       
   .btn-link
-    color: white
-    padding: 5px 20px
+    padding: 5px 30px
     border: solid 1px
     border-radius: 3px
-    font-size: 20px
+    font-size: 16px
     letter-spacing: 1px
     margin-top: 20px
     text-decoration: none
+    background-color: white
+    color: black
 
     &:hover
-      background-color: white
-      color: black
+      color: white
+      background-color: transparent
 .back_btn 
-  background-color: white
+  background-color: $colorBlue
+  color: white
+
   position: fixed
   top: 0px
-  padding: 10px 16px
+  left: 0
+  padding: 20px
   z-index: 200
-  font-size: 20px
+  // font-size: 40px
   vertical-align: middle
   cursor: pointer
-  color: #555
+  // color: #555
   // box-shadow: 10px 0px 20px rgba(0,0,0,0.1)
   i
-    font-size: 30px
+    font-size: 50px
 
 .content_indep
   width: 100%
