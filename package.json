@@ -13,9 +13,18 @@
     "test": "npm run unit && npm run e2e"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "gsap": "^2.0.2",
+    "jquery": "^3.3.1",
+    "monoame-softscroll": "^1.0.114",
+    "node-sass": "^4.10.0",
+    "pug": "^2.0.3",
+    "sass": "^1.15.1",
+    "sass-loader": "^7.1.0",
     "vue": "^2.3.3",
     "vue-meta": "^1.0.4",
-    "vue-router": "^2.3.1"
+    "vue-router": "^2.3.1",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",

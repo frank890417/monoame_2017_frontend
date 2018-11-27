@@ -11,7 +11,19 @@
       .rain
   transition(name="fade",mode="out-in")
     pageMenu(v-if="menu")
-  h5.fixed-logo Monoame <br>Design Studio 墨雨設計
+  router-link(to="/")
+    h5.fixed-logo.animated.fadeIn.delay-ani-10(:class="{at_top: scrollTop>5}") 
+      | Monoame Design<br>墨雨設計
+      span.small Interactive Design Agency
+      .rains
+        //- h1 loading
+        .rain(:style="`transform: translateY(${scrollTop/10}px)`")
+        .rain(:style="`transform: translateY(${scrollTop/12}px)`")
+        .rain(:style="`transform: translateY(${scrollTop/11}px)`")
+        .rain(:style="`transform: translateY(${scrollTop/8}px)`")
+
+      
+  h6 
   .container-fluid
         
         
@@ -46,7 +58,7 @@ export default {
     ...mapMutations(['setMenu'])
   },
   computed: {
-    ...mapState(['loading','menu'])
+    ...mapState(['loading','menu','scrollTop'])
   },
   components: {
     pageLoading , pageMenu
@@ -77,16 +89,31 @@ html,body
   margin: 0
   padding: 0
   // background-color: #495338
-  color: #555
-  background-color: #F8F2EF
+  color: white
+  // background-color: #F8F2EF
   overflow-x: hidden
-
+  background-color: #333
+  &:after
+    content: ""
+    display: block
+    position: fixed
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    border: solid 13px #A8D3D2
+    // border-top: solid 13px #A8D3D2
+    pointer-events: none
+    z-index: 1000
   
 body
-  color: $color_grey
-  background-color: #fff
-  font-size: 15px
+  // color: $color_grey
+  background-color: rgba(#112,0.9)
+  font-size: 14px
+  color: white
+  // border: solid 20px #A8D3D2
   // padding-bottom: 300px
+  padding: 10px
   min-height: 100vh
   overflow: hidden
   
@@ -94,6 +121,8 @@ body
 //   &.loading
 //     overflow: hidden
 //     height: 100vh
+h1,h2,h3,h4,h5,h6
+  font-weight: 800
 h1,h2,h3,h4,h5,h6,p
   line-height: 1.4
 h1
@@ -116,32 +145,59 @@ img
 
 .back_to_top
   position: fixed
-  right: 15px
-  bottom: 15px
-  background-color: #FFF
+  right: 30px
+  bottom: 30px
+  // // background-color: #FFF
+  // color: white
   width: 50px
   height: 50px
   border-radius: 50%
   z-index: 200
-  box-shadow: 0px 0px 20px 
-  color: #333
-  font-size: 30px
+  // box-shadow: 0px 0px 20px 
+  color: white
+
+  font-size: 50px
+  font-weight: 800
   padding-bottom: 5px
   cursor: pointer
   transition: 0.5s
+  
+    
 
 
   +flex-center
   &:hover
-    background-color: #ddd
+    // background-color: #ddd
+    transform: translateY(-10px)
 
 .fixed-logo
   position: fixed
   top: 10px
   left: 10px
-  font-size: 100px
-  opacity: 0.1
-  font-weight: 200
+  font-size: 60px
+  padding: 2vw
+  // opacity: 1
+  font-weight: 800
+  color: #fff
+  transition: 0.5s
+  transform-origin: left top
+  span.small
+    display: block
+    font-size: 1.2rem
+    margin-top: 10px
+    // color: white
+    letter-spacing: 1px
+  &.at_top
+    // transform: scale(0.6)
+    opacity: 0.1
+    .rain
+      opacity: 0.9
+      &:nth-child(1)
+        transition-duration: 0.1s
+
+    color: rgba(white,0.1)
+  // text-stroke: #333
+  // text-shadow: 3px 3px 0px #333
 .logo_bar
   // position: fixed
   +flex_center
@@ -223,6 +279,40 @@ img
 [class^='page']
   min-height: 100vh
   margin-bottom: 30px
+
+
+
+.rains
+  display: flex
+  transition-duration: 0.1s
+  margin-top: 20px
+
+
+  @keyframes rainIn
+    0%,100%
+      opacity: 0
+
+    20%,80%
+      opacity: 1
+      transform: translateY(0px)
+    0%
+      transform: translateY(-30px)
+    100%
+      transform: translateY(30px)
+
+  .rain
+    width: 12px
+    height:  50px
+    background-color: $colorBlue
+    border-radius: 50px
+    margin: 8px
+    // animation: rainIn 2.5s infinite
+    @for $i from 1 through 4
+      &:nth-child(#{$i})
+        animation-delay: #{$i*-0.2s} 
+    
+    
+
     
 .bluerain
   display: none

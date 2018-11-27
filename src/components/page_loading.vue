@@ -19,7 +19,7 @@ export default {
 $colorBlue: #A8D3D2
 .page-loading
   position: fixed
-  background-color: $colorBlue
+  background-color: #111
   width: 100vw
   height: 100vh
   position: fixed
@@ -49,7 +49,7 @@ $colorBlue: #A8D3D2
     .rain
       width: 20px
       height:  70px
-      background-color: #fff
+      background-color: $colorBlue
       border-radius: 50px
       margin: 10px
       animation: rainIn 2.5s infinite

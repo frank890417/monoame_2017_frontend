@@ -2,18 +2,19 @@
   .page-works
     .container
       .row.works
-        .projbox.col-lg-6.col-md-12(v-for="(proj,wid) in works",v-show="wid<show_num",:key="proj")
+        .projbox.animated.fadeInUp.col-lg-6.col-md-12(v-for="(proj,wid) in works",v-show="wid<show_num",:key="proj")
           router-link.workitem_inner(
                       :to='"works/"+proj.id'
                       :title='"點擊查看 "+proj.title+"詳細資訊"')
             .ratio-wrapper.animated.fadeIn
-              .blackmask
+              //- .blackmask
 
+              .img_wrap(:style='"background-image: url("+proj.cover+")"')
               .content
+                h4.year {{ proj.established_time.split("-")[0] }}
                 h3 {{proj.title}}
                 h5.proj_description {{proj.description}}
 
-              .img_wrap(:style='"background-image: url("+proj.cover+")"')
       .trigger_bar
         br 
         br 
@@ -73,8 +74,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="sass">
 
+$colorBlue: #A8D3D2
 .page-works
-  padding-top: 300px
+  padding-top: 250px
 .load_icon
   filter: saturate(0%)
 .row
@@ -84,7 +86,8 @@ export default {
 
 .projbox
   color: white
-  padding: 10px
+  padding: 40px
+  box-shadow: -5px 5px 30px rgba(black,0.6)
   // height: 300px
 
   cursor: pointer
@@ -92,18 +95,21 @@ export default {
   // border-radius: 30px
   // padding: 10px
   // height: 400px
-  padding: 0px
+  padding: 0
   margin-top: 0
   align-items: flex-start
   outline: none
 
-  margin-bottom: 1vw
+  margin-bottom: 10vw
+
+  // padding-bottom: 100px
   @media screen and (min-width: 1000px)
     &:nth-child(2n)
       top: 5vw
-      left: 0.5vw
+      left: 0.5vw+10vw
     &:nth-child(2n+1)
-      left: -0.5vw
+      left: -0.5vw+8vw
+    // margin-bottom: 10vw
 
   .workitem_inner
     display: block
@@ -134,45 +140,59 @@ export default {
     transition-duration: 0.5s
     z-index: 3
   .content
-    position: absolute
-    // padding: 10px
-    z-index: 5
+
     width: 100%
     height: 30%
+    position: relative
     // height: 100%
-    position: absolute
+    // position: absolute
     bottom: 0px
-    background: linear-gradient(transparent,rgba(black,0.5))
+    // background: linear-gradient(transparent,rgba(black,0.5))
     display: flex
     flex-direction: column
     justify-content: flex-end
     padding-bottom: 10px
-    // width: 100%
+  .year
+    // float: right
+    position: absolute
+    right: 0
+    top: 0
+    margin-top: 80px
+    color: $colorBlue
+    // opacity: 0.5
+    font-size: 15px
+    margin-top: 10px
+    font-weight: 500
+    
   h3,h5
     transition-duration: 0.5s
     // text-shadow: 0px 0px 15px rgba(0,0,0,0.2)
-    font-weight: 300
     color: #333
-    padding: 10px 20px
+    // padding: 10px 20px
     // position: absolute
     // bottom: 0px
-    font-weight: 300
+    // font-weight: 300
     // display: inline-block
 
 
   h3
-    letter-spacing: 2px
-    font-size: 22px
-    font-weight: 500
+    letter-spacing: 1px
+    // font-size: 22px
+    font-weight: 700
     color: white
     padding-bottom: 0
+    padding-left: 10px
+    border-left: solid 4px white
+    // padding: 0
+    // transform: translateX(-100px)
 
 
   h5
-    letter-spacing: 2px
+    letter-spacing: 1px
     font-size: 16px
     color: white
     padding-top: 0
+    font-weight: 300
     // padding: 0
 
   .proj_description

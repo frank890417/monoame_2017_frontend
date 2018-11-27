@@ -1,6 +1,6 @@
 <template lang="pug">
 nav.page-menu
-  .bg
+  .bg(:class="{active: menu}")
   .container-fluid
     .row
       .col-sm-12.flex-center
@@ -30,6 +30,7 @@ nav.page-menu
 
 <script>
 import $ from 'jquery'
+import {mapState, mapMutations} from 'vuex'
 export default {
   mounted(){
     //add Rains
@@ -38,7 +39,7 @@ export default {
     var rain_dist=20;
     var rain_max_length=25;
     var rain_max_duration=2.5;
-    for(var i=0;i<80;i++){
+    for(var i=0;i<70;i++){
       let rain_length=(5+Math.random()*rain_max_length);
       let rain_opacity=Math.random();
       let rain_duration=(1.5+Math.random()*rain_max_duration);
@@ -47,12 +48,13 @@ export default {
               style='height: "+rain_length+"px; \
                       left: "+(i*rain_dist)+"px; \
                       opacity: "+rain_opacity+"; \
-                      filter: blur("+(1-rain_opacity)*2+"px); \
                       animation-duration: "+rain_duration+"s; \
                       animation-delay: "+rain_delay+"s; ' \
                       ></div>\n";
       
     }
+    //filter: blur("+(1-rain_opacity)*2+"px); \
+
     $(".bg").prepend(rains);
 
     //add Waves
@@ -65,7 +67,11 @@ export default {
 
 
 
-  }
+  },
+  computed: {
+    ...mapState(['loading','menu','scrollTop'])
+  },
+
 }
 </script>
 
@@ -75,6 +81,7 @@ $colorBlue: #A8D3D2
     
   position: fixed
   background-color: $colorBlue
+  background-color: #112
   width: 100vw  
   height: 100vh
   // white-space: no-wrap
@@ -95,6 +102,15 @@ $colorBlue: #A8D3D2
     height: 100%
     left: 0
     top: 0
+    .wavebasic
+      transition-delay: 3s
+      transition-duration: 1s
+      transform: translateY(200px)
+    &.active
+      .wavebasic
+        transform: translateY(0px)
+
+
   .menu
     list-style: none
     display: flex

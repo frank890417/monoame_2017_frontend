@@ -11,14 +11,15 @@
         .img_wrap(:style='\"background-image: url(\"+((proj.big_img!=null)?proj.big_img:proj.cover)+\")\"')
       .col-sm-12.mt-5
         .row
-          .col-sm-4
+          .col-sm-6
             h1 {{proj.title}}
-          .col-sm-8
-            p {{proj.description}}
             p Client: {{proj.company}}
-            a(:href='proj.link', target='_blank')
-              h5 作品網站連結
-
+          .col-sm-6
+            p {{proj.description}}
+            a.btn-link(:href='proj.link', target='_blank') 作品網站連結
+        .row
+          .col-sm-12
+            hr
             //- p(v-html="proj.content")
     .row
       .col-sm-12.mt-5
@@ -80,7 +81,22 @@ export default {
     align-items: center
     background-position: center center
     background-size: cover
+  video
+    width: 100%
       
+  .btn-link
+    color: white
+    padding: 5px 20px
+    border: solid 1px
+    border-radius: 3px
+    font-size: 20px
+    letter-spacing: 1px
+    margin-top: 20px
+    text-decoration: none
+
+    &:hover
+      background-color: white
+      color: black
 .back_btn 
   background-color: white
   position: fixed
