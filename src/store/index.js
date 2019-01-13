@@ -27,7 +27,7 @@ var store = new Vuex.Store({
   },
   actions: {
     load_works(context){
-      axios.get("https://build.monoame.com/api/works").then(
+      axios.get("/api/works").then(
         (res)=>{
           context.commit("set_works",res.data);
           console.log("Action Result (get works):",res.data)
