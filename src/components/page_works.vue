@@ -2,7 +2,7 @@
   .page-works
     .container
       .row.works
-        .projbox.col-lg-6.col-md-12(v-for="(proj,wid) in works",v-show="wid<show_num",:key="proj")
+        .projbox.col-lg-6.col-md-12(v-for="(proj,wid) in works",v-show="wid<show_num",:key="wid")
           router-link.workitem_inner(
                       :to='"works/"+proj.id'
                       :title='"點擊查看 "+proj.title+"詳細資訊"')
